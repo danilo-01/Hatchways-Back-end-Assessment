@@ -19,7 +19,7 @@ router.get("/ping", getPing)
 Route for users to get posts by tags and sort 
 through them (id, reads, likes, popularity) and choose which order (desc, asc)
 */
-router.get("/posts/:tags/:sortBy/:direction", getPosts);
+router.get("/posts", getPosts);
 
 // Export Router
 module.exports = router;

@@ -5,6 +5,11 @@ const app = express();
 // Import routes
 const apiRouter = require("./Routes/apiRoutes");
 
+// app.use((req, res, next) => {
+//     console.log(req);
+//     next();
+// })
+
 // Connect Routes
 app.use("/api", apiRouter);
 
