@@ -1,8 +1,10 @@
+// Model for the /api endpoint
 const {BASEURL} = require("../config");
 const axios = require("axios");
 const {mergeSort} = require("../Helpers/mergeSort");
 
 class API {
+    // Gets posts based on tags and can sort and order them
     static async getPosts(tags, sortBy = "id", direction = "asc") {
         let posts = []
         const urls = [];
@@ -30,6 +32,7 @@ class API {
         const result = mergeSort(posts, sortBy);
         
         // Change order of posts if needed
+        // TODO - optimize ordering from descending
         return direction == "asc" ? result : result.reverse();
     }
 }

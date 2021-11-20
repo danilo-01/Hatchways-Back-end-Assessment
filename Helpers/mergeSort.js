@@ -1,4 +1,4 @@
-
+// Merge sort function that will sort an array of items that all have a specific identifier
 const merge = (arr1, arr2, identifier = "id") => {
     // using a map to make sure there arent any duplicate ids or whatever its being sorted by
     const results = new Map();

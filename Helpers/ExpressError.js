@@ -1,3 +1,4 @@
+// Custom error handler that takes a message and an error code to return
 class ExpressError extends Error {
     constructor(message, status) {
       super();

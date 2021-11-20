@@ -20,8 +20,8 @@ async function getPosts(req, res, next){
         const {sortBy, direction} = req.query;
 
         // Check if sortBy and direction parameters are valid
-        if(!sortByoptions.has(sortBy)) return next(new ExpressError("sortBy parameter is invalid", 400));
-        if(!directionOptions.has(direction)) return next(new ExpressError("direction parameter is invalid", 400));
+        if(sortBy && !sortByoptions.has(sortBy)) return next(new ExpressError("sortBy parameter is invalid", 400));
+        if(direction && !directionOptions.has(direction)) return next(new ExpressError("direction parameter is invalid", 400));
 
         // Request hatchways api for posts with specific tags
         const result = await API.getPosts(tags, sortBy, direction);
@@ -34,9 +34,7 @@ async function getPosts(req, res, next){
         ));
         
     }catch(error){
-        // TODO create custom express error
-        console.log(error);
-        next(error);
+        next(new ExpressError("Server Error", 500);
     }
 }
 
